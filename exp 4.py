@@ -1,0 +1,23 @@
+
+import cv2
+import matplotlib.pyplot as plt
+
+img = cv2.imread(r"C:\Users\sambe\Downloads\ITA0513_CV\Head.jpg")
+
+if img is None:
+    print("Image not found!")
+else:
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    equalized = cv2.equalizeHist(gray)
+
+    plt.subplot(1, 2, 1)
+    plt.imshow(gray, cmap="gray")
+    plt.title("Original Grayscale")
+    plt.axis("off")
+
+    plt.subplot(1, 2, 2)
+    plt.imshow(equalized, cmap="gray")
+    plt.title("Equalized Image")
+    plt.axis("off")
+
+    plt.show()
